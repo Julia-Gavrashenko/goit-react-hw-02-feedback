@@ -3,6 +3,7 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { NotificationMessage } from './Notification message/Notification message';
 import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
+import { GlobalStyle } from 'components/GlobalStyle';
 
 export class App extends Component {
   state = {
@@ -12,8 +13,6 @@ export class App extends Component {
   };
 
   collectFeedback = event => {
-    console.log('click');
-    console.dir(event.target);
     const statisticName = event.target.textContent;
 
     this.setState(prevState => ({
@@ -35,6 +34,7 @@ export class App extends Component {
   render() {
     return (
       <div>
+        <GlobalStyle />
         <Section title="Please leave feedback">
           <FeedbackOptions
             onFeedbackClick={this.collectFeedback}
